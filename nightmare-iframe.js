@@ -20,7 +20,7 @@ module.exports = exports = function(Nightmare) {
             document = d
           } catch(e) {
             // Selector is not available anymore.
-            console.log("ERROR: IFrame evaluate_now(): IFrame selector " + selector + " on document is invalid")
+            console.log("ERROR: IFrame evaluate_now(): IFrame selector " + selector + " on document " + document && document.href + " is invalid")
           }
         });
       }
