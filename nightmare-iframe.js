@@ -19,8 +19,8 @@ module.exports = exports = function(Nightmare) {
               .contentDocument;
             document = d
           } catch(e) {
-            // Selector is not available anymore. Truncate the $array list
-            console.error("IFrame evaluate_now(): IFrame selector " + selector + " on document is invalid", document)
+            // Selector is not available anymore.
+            console.log("IFrame evaluate_now(): IFrame selector " + selector + " on document is invalid")
           }
         });
       }
