@@ -20,7 +20,7 @@ module.exports = exports = function(Nightmare) {
             document = d
           } catch(e) {
             // Selector is not available anymore. Truncate the $array list
-            $array = $array.splice(idx)
+            console.error("IFrame evaluate_now(): IFrame selector " + selector + " on document is invalid", document)
           }
         });
       }
