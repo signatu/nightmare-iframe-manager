@@ -13,9 +13,15 @@ module.exports = exports = function(Nightmare) {
     var sendJsFn = String(function() {
       var document = window.top.document;
       if ($array.length > 0) {
-        $array.forEach(function(selector) {
-          document = document.querySelector(selector)
-            .contentDocument;
+        $array.forEach(function(selector, idx) {
+          try {
+            var d = document.querySelector(selector)
+              .contentDocument;
+            document = d
+          } catch(e) {
+            // Selector is not available anymore. Truncate the $array list
+            $array = $array.splice(idx)
+          }
         });
       }
       return (js_fn)
