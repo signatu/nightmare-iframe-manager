@@ -12,6 +12,10 @@ module.exports = exports = function(Nightmare) {
 
     var sendJsFn = String(function() {
       var document = window.top.document;
+      if ( ! document) {
+        console.log("sendJsFn has undefined / null document", document)
+        return
+      }
       if ($array.length > 0) {
         $array.forEach(function(selector, idx) {
           try {
@@ -21,6 +25,7 @@ module.exports = exports = function(Nightmare) {
           } catch(e) {
             // Selector is not available anymore.
             console.log("ERROR: IFrame evaluate_now(): IFrame selector " + selector + " on document " + document && document.href + " is invalid")
+            document = window.top.document
           }
         });
       }
